@@ -10,22 +10,26 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
+import androidx.core.content.ContextCompat
 import com.google.android.material.appbar.MaterialToolbar
+import com.google.android.material.card.MaterialCardView
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
-import com.google.android.material.switchmaterial.SwitchMaterial
 import java.util.Locale
 
 class SettingsActivity : AppCompatActivity() {
 
     private lateinit var prefs: SharedPreferences
-    private lateinit var darkModeSwitch: SwitchMaterial
+    private lateinit var currentThemeText: TextView
     private lateinit var currentLanguageText: TextView
 
     companion object {
         const val GITHUB_URL = "https://github.com/KaiTooast/wallpaper-schedule"
         const val HELP_URL = "https://kaitooast.github.io/wallpaper-schedule"
-        const val PREF_DARK_MODE = "dark_mode"
+        const val PREF_THEME = "theme"
         const val PREF_LANGUAGE = "language"
+        const val THEME_LIGHT = "light"
+        const val THEME_DARK = "dark"
+        const val THEME_AMOLED = "amoled"
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -35,17 +39,29 @@ class SettingsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_settings)
 
+        applyThemeColors()
         setupToolbar()
         setupViews()
         setupListeners()
     }
 
     private fun applyTheme() {
-        val isDarkMode = prefs.getBoolean(PREF_DARK_MODE, true)
-        AppCompatDelegate.setDefaultNightMode(
-            if (isDarkMode) AppCompatDelegate.MODE_NIGHT_YES 
-            else AppCompatDelegate.MODE_NIGHT_NO
-        )
+        val theme = prefs.getString(PREF_THEME, THEME_DARK) ?: THEME_DARK
+        when (theme) {
+            THEME_LIGHT -> AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+            THEME_DARK, THEME_AMOLED -> AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+        }
+    }
+
+    private fun applyThemeColors() {
+        val theme = prefs.getString(PREF_THEME, THEME_DARK) ?: THEME_DARK
+        
+        if (theme == THEME_AMOLED) {
+            val amoledBg = ContextCompat.getColor(this, R.color.amoled_background)
+            window.decorView.setBackgroundColor(amoledBg)
+            window.statusBarColor = amoledBg
+            window.navigationBarColor = amoledBg
+        }
     }
 
     private fun setupToolbar() {
@@ -54,11 +70,14 @@ class SettingsActivity : AppCompatActivity() {
     }
 
     private fun setupViews() {
-        darkModeSwitch = findViewById(R.id.darkModeSwitch)
+        currentThemeText = findViewById(R.id.currentTheme)
         currentLanguageText = findViewById(R.id.currentLanguage)
 
-        darkModeSwitch.isChecked = prefs.getBoolean(PREF_DARK_MODE, true)
+        updateThemeText()
         updateLanguageText()
+
+        // Apply AMOLED colors to cards if needed
+        applyAmoledToCards()
 
         // Version
         try {
@@ -69,13 +88,24 @@ class SettingsActivity : AppCompatActivity() {
         }
     }
 
+    private fun applyAmoledToCards() {
+        val theme = prefs.getString(PREF_THEME, THEME_DARK) ?: THEME_DARK
+        if (theme == THEME_AMOLED) {
+            val amoledBg = ContextCompat.getColor(this, R.color.amoled_background)
+            val amoledCard = ContextCompat.getColor(this, R.color.amoled_card)
+            
+            findViewById<androidx.coordinatorlayout.widget.CoordinatorLayout>(R.id.rootLayout)?.setBackgroundColor(amoledBg)
+            
+            // Find all cards and set AMOLED background
+            listOf(R.id.appearanceCard, R.id.linksCard, R.id.aboutCard).forEach { cardId ->
+                findViewById<MaterialCardView>(cardId)?.setCardBackgroundColor(amoledCard)
+            }
+        }
+    }
+
     private fun setupListeners() {
-        darkModeSwitch.setOnCheckedChangeListener { _, isChecked ->
-            prefs.edit().putBoolean(PREF_DARK_MODE, isChecked).apply()
-            AppCompatDelegate.setDefaultNightMode(
-                if (isChecked) AppCompatDelegate.MODE_NIGHT_YES 
-                else AppCompatDelegate.MODE_NIGHT_NO
-            )
+        findViewById<LinearLayout>(R.id.themeOption).setOnClickListener {
+            showThemeDialog()
         }
 
         findViewById<LinearLayout>(R.id.languageOption).setOnClickListener {
@@ -89,6 +119,33 @@ class SettingsActivity : AppCompatActivity() {
         findViewById<LinearLayout>(R.id.githubOption).setOnClickListener {
             openUrl(GITHUB_URL)
         }
+    }
+
+    private fun showThemeDialog() {
+        val themes = arrayOf(
+            getString(R.string.theme_light),
+            getString(R.string.theme_dark),
+            getString(R.string.theme_amoled)
+        )
+        val themeCodes = arrayOf(THEME_LIGHT, THEME_DARK, THEME_AMOLED)
+        val currentTheme = prefs.getString(PREF_THEME, THEME_DARK) ?: THEME_DARK
+        val currentIndex = themeCodes.indexOf(currentTheme).coerceAtLeast(0)
+
+        MaterialAlertDialogBuilder(this)
+            .setTitle(getString(R.string.theme))
+            .setSingleChoiceItems(themes, currentIndex) { dialog, which ->
+                val selectedTheme = themeCodes[which]
+                prefs.edit().putString(PREF_THEME, selectedTheme).apply()
+                dialog.dismiss()
+                
+                if (selectedTheme != currentTheme) {
+                    // Apply theme and recreate
+                    applyTheme()
+                    recreate()
+                }
+            }
+            .setNegativeButton(getString(R.string.cancel), null)
+            .show()
     }
 
     private fun showLanguageDialog() {
@@ -109,13 +166,21 @@ class SettingsActivity : AppCompatActivity() {
                 updateLanguageText()
                 dialog.dismiss()
                 
-                // Restart to apply language
                 if (selectedCode != currentLang) {
                     recreate()
                 }
             }
             .setNegativeButton(getString(R.string.cancel), null)
             .show()
+    }
+
+    private fun updateThemeText() {
+        val theme = prefs.getString(PREF_THEME, THEME_DARK) ?: THEME_DARK
+        currentThemeText.text = when (theme) {
+            THEME_LIGHT -> getString(R.string.theme_light)
+            THEME_AMOLED -> getString(R.string.theme_amoled)
+            else -> getString(R.string.theme_dark)
+        }
     }
 
     private fun updateLanguageText() {

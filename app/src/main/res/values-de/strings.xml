@@ -35,8 +35,10 @@
     <!-- Settings -->
     <string name="settings">Einstellungen</string>
     <string name="appearance">Darstellung</string>
-    <string name="dark_mode">Dunkelmodus</string>
-    <string name="dark_mode_desc">Dunkles Design verwenden</string>
+    <string name="theme">Design</string>
+    <string name="theme_light">Hell</string>
+    <string name="theme_dark">Dunkel</string>
+    <string name="theme_amoled">AMOLED</string>
     <string name="language">Sprache</string>
     <string name="links">Links</string>
     <string name="help">Hilfe</string>

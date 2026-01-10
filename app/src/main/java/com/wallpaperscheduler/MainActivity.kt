@@ -41,6 +41,9 @@ class MainActivity : AppCompatActivity() {
     private var selectedDaysForBulk: MutableList<Int> = mutableListOf()
     private var isBulkSelection: Boolean = false
     private var isBulkTimeSelection: Boolean = false
+    
+    private var currentTheme: String = ""
+    private var currentLanguage: String = ""
 
     companion object {
         private const val PERMISSION_REQUEST_CODE = 100
@@ -57,6 +60,11 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        // Save current settings to detect changes later
+        val prefs = getSharedPreferences("settings_prefs", Context.MODE_PRIVATE)
+        currentTheme = prefs.getString(SettingsActivity.PREF_THEME, SettingsActivity.THEME_DARK) ?: SettingsActivity.THEME_DARK
+        currentLanguage = prefs.getString(SettingsActivity.PREF_LANGUAGE, "system") ?: "system"
+        
         applyTheme()
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -66,6 +74,7 @@ class MainActivity : AppCompatActivity() {
 
         wallpaperManager = WallpaperSchedulerManager(this)
 
+        applyAmoledColors()
         initViews()
         setupRecyclerView()
         setupListeners()
@@ -74,11 +83,24 @@ class MainActivity : AppCompatActivity() {
 
     private fun applyTheme() {
         val prefs = getSharedPreferences("settings_prefs", Context.MODE_PRIVATE)
-        val isDarkMode = prefs.getBoolean(SettingsActivity.PREF_DARK_MODE, true)
-        AppCompatDelegate.setDefaultNightMode(
-            if (isDarkMode) AppCompatDelegate.MODE_NIGHT_YES 
-            else AppCompatDelegate.MODE_NIGHT_NO
-        )
+        val theme = prefs.getString(SettingsActivity.PREF_THEME, SettingsActivity.THEME_DARK) ?: SettingsActivity.THEME_DARK
+        when (theme) {
+            SettingsActivity.THEME_LIGHT -> AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+            SettingsActivity.THEME_DARK, SettingsActivity.THEME_AMOLED -> AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+        }
+    }
+
+    private fun applyAmoledColors() {
+        val prefs = getSharedPreferences("settings_prefs", Context.MODE_PRIVATE)
+        val theme = prefs.getString(SettingsActivity.PREF_THEME, SettingsActivity.THEME_DARK) ?: SettingsActivity.THEME_DARK
+        
+        if (theme == SettingsActivity.THEME_AMOLED) {
+            val amoledBg = ContextCompat.getColor(this, R.color.amoled_background)
+            window.decorView.setBackgroundColor(amoledBg)
+            window.statusBarColor = amoledBg
+            window.navigationBarColor = amoledBg
+            findViewById<androidx.coordinatorlayout.widget.CoordinatorLayout>(R.id.rootLayout)?.setBackgroundColor(amoledBg)
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -398,6 +420,17 @@ class MainActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
+        
+        // Check if theme or language changed
+        val prefs = getSharedPreferences("settings_prefs", Context.MODE_PRIVATE)
+        val newTheme = prefs.getString(SettingsActivity.PREF_THEME, SettingsActivity.THEME_DARK) ?: SettingsActivity.THEME_DARK
+        val newLanguage = prefs.getString(SettingsActivity.PREF_LANGUAGE, "system") ?: "system"
+        
+        if (newTheme != currentTheme || newLanguage != currentLanguage) {
+            recreate()
+            return
+        }
+        
         adapter.updateSchedules(wallpaperManager.getDaySchedules())
     }
 }

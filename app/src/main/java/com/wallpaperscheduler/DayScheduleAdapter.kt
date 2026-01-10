@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.card.MaterialCardView
 import com.google.android.material.switchmaterial.SwitchMaterial
@@ -22,7 +23,15 @@ class DayScheduleAdapter(
     private val onTimeClick: (DaySchedule, Boolean) -> Unit
 ) : RecyclerView.Adapter<DayScheduleAdapter.ViewHolder>() {
 
+    private val isAmoled: Boolean
+
+    init {
+        val prefs = context.getSharedPreferences("settings_prefs", Context.MODE_PRIVATE)
+        isAmoled = prefs.getString(SettingsActivity.PREF_THEME, SettingsActivity.THEME_DARK) == SettingsActivity.THEME_AMOLED
+    }
+
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+        val rootCard: MaterialCardView = view as MaterialCardView
         val dayName: TextView = view.findViewById(R.id.dayName)
         val daySwitch: SwitchMaterial = view.findViewById(R.id.daySwitch)
         val contentLayout: LinearLayout = view.findViewById(R.id.contentLayout)
@@ -48,6 +57,17 @@ class DayScheduleAdapter(
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val schedule = schedules[position]
+        
+        // Apply AMOLED colors if needed
+        if (isAmoled) {
+            val amoledCard = ContextCompat.getColor(context, R.color.amoled_card)
+            val amoledCardSecondary = ContextCompat.getColor(context, R.color.amoled_card_secondary)
+            holder.rootCard.setCardBackgroundColor(amoledCard)
+            holder.morningCard.setCardBackgroundColor(amoledCardSecondary)
+            holder.eveningCard.setCardBackgroundColor(amoledCardSecondary)
+            holder.morningTimeCard.setCardBackgroundColor(amoledCardSecondary)
+            holder.eveningTimeCard.setCardBackgroundColor(amoledCardSecondary)
+        }
         
         holder.dayName.text = schedule.dayName
         holder.daySwitch.isChecked = schedule.isEnabled
