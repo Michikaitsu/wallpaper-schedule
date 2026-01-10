@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Wallpaper Scheduler</string>
+    <string name="scheduler">Scheduler</string>
+    <string name="active">Aktiv</string>
+    <string name="inactive">Inaktiv</string>
+    <string name="quick_select">Schnell-Auswahl</string>
+    <string name="apply_all_days">Für alle Tage setzen</string>
+    <string name="weekdays_only">Nur Wochentage (Mo-Fr)</string>
+    <string name="weekends_only">Nur Wochenende (Sa-So)</string>
+    <string name="configure_days">Tage konfigurieren</string>
+    <string name="morning">Morgen</string>
+    <string name="evening">Abend</string>
+    <string name="add_image">+ Bild</string>
+    <string name="from_time">ab %1$s</string>
+    <string name="select_days">Tage auswählen</string>
+    <string name="select_days_desc">Wähle die Tage für dieses Wallpaper</string>
+    <string name="cancel">Abbrechen</string>
+    <string name="select_image">Bild wählen</string>
+    <string name="next">Weiter</string>
+    <string name="set_times_for_days">Zeiten für mehrere Tage setzen</string>
+    <string name="select_time_type">Zeittyp auswählen</string>
+    <string name="which_time_to_set">Welche Zeit möchtest du setzen?</string>
+    <string name="times_set_days">Zeiten für %1$d Tage gesetzt</string>
+    <string name="wallpaper_type">Wallpaper Typ</string>
+    <string name="which_time">Für welche Tageszeit?</string>
+    <string name="scheduler_activated">Scheduler aktiviert</string>
+    <string name="scheduler_deactivated">Scheduler deaktiviert</string>
+    <string name="select_one_day">Bitte mindestens einen Tag auswählen</string>
+    <string name="wallpaper_set_days">Wallpaper für %1$d Tage gesetzt</string>
+    <string name="wallpaper_set">Wallpaper gesetzt</string>
+    <string name="error_message">Fehler: %1$s</string>
+    <string name="change_time">Tippen zum Ändern</string>
+    
+    <!-- Settings -->
+    <string name="settings">Einstellungen</string>
+    <string name="appearance">Darstellung</string>
+    <string name="dark_mode">Dunkelmodus</string>
+    <string name="dark_mode_desc">Dunkles Design verwenden</string>
+    <string name="language">Sprache</string>
+    <string name="links">Links</string>
+    <string name="help">Hilfe</string>
+    <string name="about">Über</string>
+    <string name="about_desc">Plane verschiedene Hintergrundbilder für verschiedene Tageszeiten, für jeden Wochentag.</string>
+    <string name="made_by">Mit ❤️ gemacht von KaiTooast</string>
+    <string name="lang_system">Systemstandard</string>
+    <string name="lang_english">English</string>
+    <string name="lang_german">Deutsch</string>
+    
+    <!-- Day names -->
+    <string name="monday">Montag</string>
+    <string name="tuesday">Dienstag</string>
+    <string name="wednesday">Mittwoch</string>
+    <string name="thursday">Donnerstag</string>
+    <string name="friday">Freitag</string>
+    <string name="saturday">Samstag</string>
+    <string name="sunday">Sonntag</string>
+    
+    <!-- Short day names -->
+    <string name="mon">Mo</string>
+    <string name="tue">Di</string>
+    <string name="wed">Mi</string>
+    <string name="thu">Do</string>
+    <string name="fri">Fr</string>
+    <string name="sat">Sa</string>
+    <string name="sun">So</string>
+</resources>

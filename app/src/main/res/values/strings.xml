@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Wallpaper Scheduler</string>
+    <string name="scheduler">Scheduler</string>
+    <string name="active">Active</string>
+    <string name="inactive">Inactive</string>
+    <string name="quick_select">Quick Select</string>
+    <string name="apply_all_days">Apply to all days</string>
+    <string name="weekdays_only">Weekdays only (Mon-Fri)</string>
+    <string name="weekends_only">Weekends only (Sat-Sun)</string>
+    <string name="configure_days">Configure Days</string>
+    <string name="morning">Morning</string>
+    <string name="evening">Evening</string>
+    <string name="add_image">+ Image</string>
+    <string name="from_time">from %1$s</string>
+    <string name="select_days">Select Days</string>
+    <string name="select_days_desc">Choose days for this wallpaper</string>
+    <string name="cancel">Cancel</string>
+    <string name="select_image">Select Image</string>
+    <string name="next">Next</string>
+    <string name="set_times_for_days">Set times for multiple days</string>
+    <string name="select_time_type">Select time type</string>
+    <string name="which_time_to_set">Which time do you want to set?</string>
+    <string name="times_set_days">Times set for %1$d days</string>
+    <string name="wallpaper_type">Wallpaper Type</string>
+    <string name="which_time">For which time of day?</string>
+    <string name="scheduler_activated">Scheduler activated</string>
+    <string name="scheduler_deactivated">Scheduler deactivated</string>
+    <string name="select_one_day">Please select at least one day</string>
+    <string name="wallpaper_set_days">Wallpaper set for %1$d days</string>
+    <string name="wallpaper_set">Wallpaper set</string>
+    <string name="error_message">Error: %1$s</string>
+    <string name="change_time">Tap to change</string>
+    
+    <!-- Settings -->
+    <string name="settings">Settings</string>
+    <string name="appearance">Appearance</string>
+    <string name="dark_mode">Dark Mode</string>
+    <string name="dark_mode_desc">Use dark theme</string>
+    <string name="language">Language</string>
+    <string name="links">Links</string>
+    <string name="help">Help</string>
+    <string name="about">About</string>
+    <string name="about_desc">Schedule different wallpapers for different times of day, for each day of the week.</string>
+    <string name="made_by">Made with ❤️ by KaiTooast</string>
+    <string name="lang_system">System default</string>
+    <string name="lang_english">English</string>
+    <string name="lang_german">Deutsch</string>
+    
+    <!-- Day names -->
+    <string name="monday">Monday</string>
+    <string name="tuesday">Tuesday</string>
+    <string name="wednesday">Wednesday</string>
+    <string name="thursday">Thursday</string>
+    <string name="friday">Friday</string>
+    <string name="saturday">Saturday</string>
+    <string name="sunday">Sunday</string>
+    
+    <!-- Short day names -->
+    <string name="mon">Mon</string>
+    <string name="tue">Tue</string>
+    <string name="wed">Wed</string>
+    <string name="thu">Thu</string>
+    <string name="fri">Fri</string>
+    <string name="sat">Sat</string>
+    <string name="sun">Sun</string>
+</resources>

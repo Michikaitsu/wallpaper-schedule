@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Light Theme Colors (default) -->
+    <color name="background_main">#FFF5F5F5</color>
+    <color name="card_background">#FFFFFFFF</color>
+    <color name="card_background_secondary">#FFF0F0F0</color>
+    <color name="text_primary">#FF212121</color>
+    <color name="text_secondary">#FF757575</color>
+    <color name="divider">#1F000000</color>
+</resources>

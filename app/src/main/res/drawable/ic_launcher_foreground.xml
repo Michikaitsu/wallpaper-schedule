@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    
+    <!-- Image/Picture frame - centered and smaller -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M36,38h24c2,0 3.5,1.5 3.5,3.5v21c0,2 -1.5,3.5 -3.5,3.5H36c-2,0 -3.5,-1.5 -3.5,-3.5v-21C32.5,39.5 34,38 36,38z"/>
+    
+    <!-- Mountain scene in picture -->
+    <path
+        android:fillColor="#B388FF"
+        android:pathData="M32.5,62l9,-12l6,7.5l9,-10.5l7,15H32.5z"/>
+    
+    <!-- Sun in picture -->
+    <path
+        android:fillColor="#FFAB40"
+        android:pathData="M56,46m-4,0a4,4 0,1 1,8 0a4,4 0,1 1,-8 0"/>
+    
+    <!-- Clock circle background -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M64,64m-12,0a12,12 0,1 1,24 0a12,12 0,1 1,-24 0"/>
+    
+    <!-- Clock inner circle -->
+    <path
+        android:fillColor="#6C63FF"
+        android:pathData="M64,64m-10,0a10,10 0,1 1,20 0a10,10 0,1 1,-20 0"/>
+    
+    <!-- Clock hour hand -->
+    <path
+        android:strokeWidth="2.5"
+        android:strokeColor="#FFFFFF"
+        android:strokeLineCap="round"
+        android:pathData="M64,64L64,58"/>
+    
+    <!-- Clock minute hand -->
+    <path
+        android:strokeWidth="2"
+        android:strokeColor="#FFFFFF"
+        android:strokeLineCap="round"
+        android:pathData="M64,64L69,64"/>
+    
+    <!-- Clock center dot -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M64,64m-1.5,0a1.5,1.5 0,1 1,3 0a1.5,1.5 0,1 1,-3 0"/>
+
+</vector>

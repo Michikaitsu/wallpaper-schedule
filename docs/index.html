@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wallpaper Scheduler - Help</title>
+    <meta name="description" content="Schedule different wallpapers for different times of day on Android">
+    <link rel="icon" type="image/png" href="assets/icon.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#6C63FF',
+                        'primary-dark': '#5A52D5',
+                        accent: { orange: '#FFAB40', purple: '#B388FF', green: '#69F0AE' }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .gradient-bg { background: linear-gradient(135deg, #6C63FF 0%, #B388FF 100%); }
+        .glass { background: rgba(255,255,255,0.05); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.1); }
+    </style>
+</head>
+<body class="bg-gray-950 text-white antialiased">
+    <!-- Nav -->
+    <nav class="fixed top-0 left-0 right-0 z-50 glass">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center gap-3">
+                    <img src="assets/icon.svg" alt="Icon" class="w-8 h-8 rounded-lg">
+                    <span class="font-semibold text-lg">Wallpaper Scheduler</span>
+                </div>
+                <div class="hidden md:flex items-center gap-8">
+                    <a href="#features" class="text-gray-400 hover:text-white transition">Features</a>
+                    <a href="#guide" class="text-gray-400 hover:text-white transition">Guide</a>
+                    <a href="#faq" class="text-gray-400 hover:text-white transition">FAQ</a>
+                </div>
+                <a href="https://github.com/KaiTooast/wallpaper-schedule/releases" class="bg-primary hover:bg-primary-dark px-4 py-2 rounded-full text-sm font-medium transition">Download</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <header class="gradient-bg pt-32 pb-20 px-4">
+        <div class="max-w-4xl mx-auto text-center">
+            <div class="inline-flex items-center gap-2 bg-white/10 rounded-full px-4 py-2 text-sm mb-8">
+                <span class="w-2 h-2 bg-accent-green rounded-full animate-pulse"></span>
+                Version 1.0 Available
+            </div>
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6">Schedule Your<br><span class="text-accent-orange">Wallpapers</span> Automatically</h1>
+            <p class="text-xl text-white/80 mb-10 max-w-2xl mx-auto">Set different wallpapers for morning and evening, customize each day, and let the app handle the rest.</p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="https://github.com/KaiTooast/wallpaper-schedule/releases" class="inline-flex items-center justify-center gap-2 bg-white text-primary font-semibold px-8 py-4 rounded-full hover:bg-gray-100 transition transform hover:scale-105">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+                    Download APK
+                </a>
+                <a href="https://github.com/KaiTooast/wallpaper-schedule" class="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 font-semibold px-8 py-4 rounded-full transition">GitHub</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Features -->
+    <section id="features" class="py-20 px-4">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl sm:text-4xl font-bold mb-4">Features</h2>
+                <p class="text-gray-400">Everything you need to automate your wallpaper experience</p>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="bg-gray-900 rounded-2xl p-6 border border-gray-800 hover:border-primary/50 transition">
+                    <div class="w-12 h-12 bg-accent-orange/20 rounded-xl flex items-center justify-center mb-4 text-2xl">🌅</div>
+                    <h3 class="text-xl font-semibold mb-2">Morning & Evening</h3>
+                    <p class="text-gray-400">Set different wallpapers for day and night.</p>
+                </div>
+                <div class="bg-gray-900 rounded-2xl p-6 border border-gray-800 hover:border-primary/50 transition">
+                    <div class="w-12 h-12 bg-primary/20 rounded-xl flex items-center justify-center mb-4 text-2xl">📅</div>
+                    <h3 class="text-xl font-semibold mb-2">Per-Day Config</h3>
+                    <p class="text-gray-400">Customize wallpapers for each day of the week.</p>
+                </div>
+                <div class="bg-gray-900 rounded-2xl p-6 border border-gray-800 hover:border-primary/50 transition">
+                    <div class="w-12 h-12 bg-accent-purple/20 rounded-xl flex items-center justify-center mb-4 text-2xl">⏰</div>
+                    <h3 class="text-xl font-semibold mb-2">Precise Timing</h3>
+                    <p class="text-gray-400">Set exact times with hours and minutes.</p>
+                </div>
+                <div class="bg-gray-900 rounded-2xl p-6 border border-gray-800 hover:border-primary/50 transition">
+                    <div class="w-12 h-12 bg-accent-green/20 rounded-xl flex items-center justify-center mb-4 text-2xl">🎨</div>
+                    <h3 class="text-xl font-semibold mb-2">Modern Design</h3>
+                    <p class="text-gray-400">Material Design 3 with dark and light mode.</p>
+                </div>
+                <div class="bg-gray-900 rounded-2xl p-6 border border-gray-800 hover:border-primary/50 transition">
+                    <div class="w-12 h-12 bg-accent-orange/20 rounded-xl flex items-center justify-center mb-4 text-2xl">🚀</div>
+                    <h3 class="text-xl font-semibold mb-2">Quick Setup</h3>
+                    <p class="text-gray-400">Apply to multiple days with one tap.</p>
+                </div>
+                <div class="bg-gray-900 rounded-2xl p-6 border border-gray-800 hover:border-primary/50 transition">
+                    <div class="w-12 h-12 bg-primary/20 rounded-xl flex items-center justify-center mb-4 text-2xl">🌍</div>
+                    <h3 class="text-xl font-semibold mb-2">Multi-Language</h3>
+                    <p class="text-gray-400">English and German supported.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Guide -->
+    <section id="guide" class="py-20 px-4 bg-gray-900/50">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl sm:text-4xl font-bold mb-4">Getting Started</h2>
+                <p class="text-gray-400">Up and running in 5 simple steps</p>
+            </div>
+            <div class="space-y-6">
+                <div class="flex gap-6 items-start">
+                    <div class="w-10 h-10 bg-primary rounded-full flex items-center justify-center font-bold shrink-0">1</div>
+                    <div class="bg-gray-900 rounded-xl p-6 flex-1 border border-gray-800">
+                        <h3 class="font-semibold text-lg mb-2">Install the App</h3>
+                        <p class="text-gray-400">Download the APK from GitHub Releases. Enable "Install from unknown sources" if prompted.</p>
+                        <p class="text-amber-400 text-sm mt-2">⚠️ Google Play Protect may show a warning - this is normal for apps outside the Play Store. Tap "Install anyway" to continue.</p>
+                    </div>
+                </div>
+                <div class="flex gap-6 items-start">
+                    <div class="w-10 h-10 bg-primary rounded-full flex items-center justify-center font-bold shrink-0">2</div>
+                    <div class="bg-gray-900 rounded-xl p-6 flex-1 border border-gray-800">
+                        <h3 class="font-semibold text-lg mb-2">Grant Permissions</h3>
+                        <p class="text-gray-400">Allow access to photos and wallpaper settings when the app asks.</p>
+                    </div>
+                </div>
+                <div class="flex gap-6 items-start">
+                    <div class="w-10 h-10 bg-primary rounded-full flex items-center justify-center font-bold shrink-0">3</div>
+                    <div class="bg-gray-900 rounded-xl p-6 flex-1 border border-gray-800">
+                        <h3 class="font-semibold text-lg mb-2">Select Wallpapers</h3>
+                        <p class="text-gray-400">Tap on the ☀️ Morning or 🌙 Evening slots to pick your images.</p>
+                    </div>
+                </div>
+                <div class="flex gap-6 items-start">
+                    <div class="w-10 h-10 bg-primary rounded-full flex items-center justify-center font-bold shrink-0">4</div>
+                    <div class="bg-gray-900 rounded-xl p-6 flex-1 border border-gray-800">
+                        <h3 class="font-semibold text-lg mb-2">Set Your Times</h3>
+                        <p class="text-gray-400">Tap the time buttons to choose when each wallpaper should activate.</p>
+                    </div>
+                </div>
+                <div class="flex gap-6 items-start">
+                    <div class="w-10 h-10 bg-accent-green rounded-full flex items-center justify-center font-bold shrink-0">5</div>
+                    <div class="bg-gray-900 rounded-xl p-6 flex-1 border border-gray-800">
+                        <h3 class="font-semibold text-lg mb-2">Enable & Enjoy</h3>
+                        <p class="text-gray-400">Toggle the main switch to activate. Your wallpapers will now change automatically!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="py-20 px-4">
+        <div class="max-w-3xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl sm:text-4xl font-bold mb-4">FAQ</h2>
+                <p class="text-gray-400">Common questions answered</p>
+            </div>
+            <div class="space-y-4">
+                <details class="bg-gray-900 rounded-xl border border-gray-800 group">
+                    <summary class="flex items-center justify-between p-6 cursor-pointer">
+                        <span class="font-semibold">Wallpaper doesn't change automatically?</span>
+                        <svg class="w-5 h-5 text-gray-400 group-open:rotate-180 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </summary>
+                    <div class="px-6 pb-6 text-gray-400">Make sure the scheduler is enabled. Also disable battery optimization: Settings → Apps → Wallpaper Scheduler → Battery → Unrestricted.</div>
+                </details>
+                <details class="bg-gray-900 rounded-xl border border-gray-800 group">
+                    <summary class="flex items-center justify-between p-6 cursor-pointer">
+                        <span class="font-semibold">App crashes when selecting an image?</span>
+                        <svg class="w-5 h-5 text-gray-400 group-open:rotate-180 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </summary>
+                    <div class="px-6 pb-6 text-gray-400">Check photo permissions: Settings → Apps → Wallpaper Scheduler → Permissions → Photos → Allow.</div>
+                </details>
+                <details class="bg-gray-900 rounded-xl border border-gray-800 group">
+                    <summary class="flex items-center justify-between p-6 cursor-pointer">
+                        <span class="font-semibold">Doesn't work after phone restart?</span>
+                        <svg class="w-5 h-5 text-gray-400 group-open:rotate-180 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </summary>
+                    <div class="px-6 pb-6 text-gray-400">Some phones require "Auto-start" permission. Open the app once after reboot to reactivate.</div>
+                </details>
+                <details class="bg-gray-900 rounded-xl border border-gray-800 group">
+                    <summary class="flex items-center justify-between p-6 cursor-pointer">
+                        <span class="font-semibold">Can I have more than 2 wallpapers per day?</span>
+                        <svg class="w-5 h-5 text-gray-400 group-open:rotate-180 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </summary>
+                    <div class="px-6 pb-6 text-gray-400">Currently morning and evening only. More time slots may come in future updates!</div>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-20 px-4">
+        <div class="max-w-4xl mx-auto">
+            <div class="gradient-bg rounded-3xl p-8 sm:p-12 text-center">
+                <h2 class="text-3xl sm:text-4xl font-bold mb-4">Ready to automate?</h2>
+                <p class="text-white/80 mb-8">Download now and never manually change your wallpaper again.</p>
+                <a href="https://github.com/KaiTooast/wallpaper-schedule/releases" class="inline-flex items-center gap-2 bg-white text-primary font-semibold px-8 py-4 rounded-full hover:bg-gray-100 transition">Download for Android</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="border-t border-gray-800 py-12 px-4">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+            <div class="flex items-center gap-3">
+                <img src="assets/icon.svg" alt="Icon" class="w-8 h-8 rounded-lg">
+                <span class="font-semibold">Wallpaper Scheduler</span>
+            </div>
+            <div class="flex items-center gap-6 text-gray-400">
+                <a href="https://github.com/KaiTooast/wallpaper-schedule" class="hover:text-white transition">GitHub</a>
+                <a href="https://github.com/KaiTooast/wallpaper-schedule/issues" class="hover:text-white transition">Report Issue</a>
+            </div>
+            <p class="text-gray-500 text-sm">Made with ❤️ by <a href="https://github.com/KaiTooast" class="text-primary hover:underline">KaiTooast</a></p>
+        </div>
+    </footer>
+</body>
+</html>
