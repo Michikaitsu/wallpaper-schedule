@@ -47,9 +47,9 @@
     <!-- Hero -->
     <header class="gradient-bg pt-32 pb-20 px-4">
         <div class="max-w-4xl mx-auto text-center">
-            <div class="inline-flex items-center gap-2 bg-white/10 rounded-full px-4 py-2 text-sm mb-8">
+            <div id="versionBadge" class="inline-flex items-center gap-2 bg-white/10 rounded-full px-4 py-2 text-sm mb-8">
                 <span class="w-2 h-2 bg-accent-green rounded-full animate-pulse"></span>
-                Version 1.0 Available
+                <span id="versionText">Loading...</span>
             </div>
             <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6">Schedule Your<br><span class="text-accent-orange">Wallpapers</span> Automatically</h1>
             <p class="text-xl text-white/80 mb-10 max-w-2xl mx-auto">Set different wallpapers for morning and evening, customize each day, and let the app handle the rest.</p>
@@ -218,5 +218,18 @@
             <p class="text-gray-500 text-sm">Made with ❤️ by <a href="https://github.com/KaiTooast" class="text-primary hover:underline">KaiTooast</a></p>
         </div>
     </footer>
+
+    <script>
+        // Fetch latest version from GitHub API
+        fetch('https://api.github.com/repos/KaiTooast/wallpaper-schedule/releases/latest')
+            .then(response => response.json())
+            .then(data => {
+                const version = data.tag_name || 'v1.0.0';
+                document.getElementById('versionText').textContent = version + ' Available';
+            })
+            .catch(() => {
+                document.getElementById('versionText').textContent = 'Latest Available';
+            });
+    </script>
 </body>
 </html>
