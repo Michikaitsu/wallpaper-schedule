@@ -1,7 +1,7 @@
 # Wallpaper Scheduler
 
 <p align="center">
-  <img src="docs/assets/icon.png" alt="Wallpaper Scheduler Icon" width="128" height="128">
+  <img src="docs/assets/icon.svg" alt="Wallpaper Scheduler Icon" width="128" height="128">
 </p>
 
 <p align="center">
