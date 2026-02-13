@@ -1,12 +1,12 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 108 108">
     <!-- Background -->
-    <rect width="108" height="108" fill="#6C63FF"/>
+    <rect width="108" height="108" fill="#4A0404"/>
     
     <!-- Image/Picture frame -->
     <rect x="32.5" y="38" width="31" height="28" rx="3.5" fill="#FFFFFF"/>
     
     <!-- Mountain scene -->
-    <path d="M32.5,62l9,-12l6,7.5l9,-10.5l7,15H32.5z" fill="#B388FF"/>
+    <path d="M32.5,62l9,-12l6,7.5l9,-10.5l7,15H32.5z" fill="#4A0404"/>
     
     <!-- Sun -->
     <circle cx="56" cy="46" r="4" fill="#FFAB40"/>
@@ -15,7 +15,7 @@
     <circle cx="64" cy="64" r="12" fill="#FFFFFF"/>
     
     <!-- Clock inner -->
-    <circle cx="64" cy="64" r="10" fill="#6C63FF"/>
+    <circle cx="64" cy="64" r="10" fill="#4A0404"/>
     
     <!-- Clock hands -->
     <line x1="64" y1="64" x2="64" y2="58" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round"/>

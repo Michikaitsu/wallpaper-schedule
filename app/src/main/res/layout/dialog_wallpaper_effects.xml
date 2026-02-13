@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/wallpaper_effects"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="16dp" />
+
+    <!-- Preview -->
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_marginBottom="16dp"
+        app:cardCornerRadius="12dp">
+
+        <ImageView
+            android:id="@+id/effectPreview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:contentDescription="@string/preview" />
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <!-- Blur -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/effect_blur"
+        android:textSize="14sp" />
+
+    <com.google.android.material.slider.Slider
+        android:id="@+id/blurSlider"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:valueFrom="0"
+        android:valueTo="25"
+        android:stepSize="1"
+        android:value="0" />
+
+    <!-- Dim -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/effect_dim"
+        android:textSize="14sp" />
+
+    <com.google.android.material.slider.Slider
+        android:id="@+id/dimSlider"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:valueFrom="0"
+        android:valueTo="80"
+        android:stepSize="5"
+        android:value="0" />
+
+    <!-- Saturation -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/effect_saturation"
+        android:textSize="14sp" />
+
+    <com.google.android.material.slider.Slider
+        android:id="@+id/saturationSlider"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:valueFrom="0"
+        android:valueTo="2"
+        android:stepSize="0.1"
+        android:value="1" />
+
+    <!-- Warmth -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/effect_warmth"
+        android:textSize="14sp" />
+
+    <com.google.android.material.slider.Slider
+        android:id="@+id/warmthSlider"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:valueFrom="-50"
+        android:valueTo="50"
+        android:stepSize="5"
+        android:value="0" />
+
+    <!-- Buttons -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="16dp">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/resetButton"
+            style="@style/Widget.Material3.Button.TextButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/reset" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/applyButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/apply"
+            android:textColor="#FFFFFFFF"
+            app:backgroundTint="#FF4A0404" />
+
+    </LinearLayout>
+
+</LinearLayout>

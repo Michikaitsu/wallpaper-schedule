@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/widgetRoot"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:gravity="center"
+    android:paddingHorizontal="12dp"
+    android:paddingVertical="14dp"
+    android:background="@drawable/widget_background">
+
+    <!-- Morning Button -->
+    <FrameLayout
+        android:id="@+id/btnMorning"
+        android:layout_width="0dp"
+        android:layout_height="42dp"
+        android:layout_weight="1"
+        android:layout_marginEnd="6dp"
+        android:background="@drawable/widget_toggle_background">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:src="@drawable/ic_widget_sun"
+                android:layout_marginEnd="6dp"
+                tools:ignore="ContentDescription" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/morning"
+                android:textColor="#FFFFFF"
+                android:textSize="13sp" />
+
+        </LinearLayout>
+
+    </FrameLayout>
+
+    <!-- Evening Button -->
+    <FrameLayout
+        android:id="@+id/btnEvening"
+        android:layout_width="0dp"
+        android:layout_height="42dp"
+        android:layout_weight="1"
+        android:layout_marginStart="6dp"
+        android:background="@drawable/widget_toggle_background">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:src="@drawable/ic_widget_moon"
+                android:layout_marginEnd="6dp"
+                tools:ignore="ContentDescription" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/evening"
+                android:textColor="#FFFFFF"
+                android:textSize="13sp" />
+
+        </LinearLayout>
+
+    </FrameLayout>
+
+</LinearLayout>

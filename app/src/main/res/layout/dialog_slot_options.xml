@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <!-- Wallpaper Preview -->
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/previewCard"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_marginBottom="16dp"
+        app:cardCornerRadius="12dp"
+        app:cardElevation="0dp"
+        app:cardBackgroundColor="@color/card_background_secondary">
+
+        <ImageView
+            android:id="@+id/wallpaperPreview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop" />
+
+        <TextView
+            android:id="@+id/noWallpaperText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/no_wallpaper"
+            android:textColor="@color/text_secondary"
+            android:textSize="14sp"
+            android:visibility="gone" />
+        
+        <!-- Favorite Icon -->
+        <ImageView
+            android:id="@+id/favoriteIcon"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_gravity="top|end"
+            android:layout_margin="8dp"
+            android:padding="6dp"
+            android:background="@drawable/widget_toggle_background"
+            android:src="@drawable/ic_favorite_outline"
+            app:tint="@color/accent_pink"
+            android:contentDescription="@string/favorite" />
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <!-- Time Display -->
+    <TextView
+        android:id="@+id/slotTimeText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="16dp"
+        android:text="08:00"
+        android:textColor="@color/text_primary"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+    <!-- Options -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnChangeWallpaper"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/change_wallpaper"
+        style="@style/Widget.Material3.Button.TonalButton"
+        app:icon="@drawable/ic_widget_wallpaper"
+        app:iconGravity="textStart" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnFromFavorites"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/from_favorites"
+        style="@style/Widget.Material3.Button.TonalButton"
+        app:icon="@drawable/ic_favorite_filled"
+        app:iconGravity="textStart"
+        app:iconTint="@color/accent_pink" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnEffects"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/apply_effects"
+        style="@style/Widget.Material3.Button.TonalButton"
+        app:iconGravity="textStart" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnShuffle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/shuffle_mode"
+        style="@style/Widget.Material3.Button.TonalButton"
+        app:iconGravity="textStart" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnChangeTime"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/change_time"
+        style="@style/Widget.Material3.Button.TonalButton"
+        app:icon="@drawable/ic_widget_clock"
+        app:iconGravity="textStart" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnDelete"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/delete_slot"
+        android:textColor="@color/accent_pink"
+        style="@style/Widget.Material3.Button.TextButton"
+        app:iconGravity="textStart"
+        app:iconTint="@color/accent_pink" />
+
+</LinearLayout>

@@ -1,10 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- Accent Colors -->
-    <color name="accent_blue">#FF6C63FF</color>
-    <color name="accent_purple">#FFB388FF</color>
+    <color name="accent_blue">#FF2196F3</color>
+    <color name="accent_purple">#FF4A0404</color>
     <color name="accent_orange">#FFFFAB40</color>
     <color name="accent_green">#FF69F0AE</color>
+    <color name="accent_pink">#FFFF80AB</color>
+    <color name="accent_teal">#FF64FFDA</color>
+    
+    <!-- Button Specific Colors -->
+    <color name="button_yellow">#FFFFC107</color>
+    <color name="button_blue">#FF2196F3</color>
+    <color name="button_green">#FF4CAF50</color>
     
     <!-- Common -->
     <color name="white">#FFFFFFFF</color>
@@ -24,7 +31,7 @@
     <color name="amoled_card_secondary">#FF141414</color>
     
     <!-- Legacy -->
-    <color name="purple_200">#FFBB86FC</color>
-    <color name="purple_500">#FF6200EE</color>
-    <color name="purple_700">#FF3700B3</color>
+    <color name="purple_200">#FF4A0404</color>
+    <color name="purple_500">#FF4A0404</color>
+    <color name="purple_700">#FF4A0404</color>
 </resources>

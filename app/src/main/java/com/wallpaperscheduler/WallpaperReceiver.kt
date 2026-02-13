@@ -34,9 +34,22 @@ class WallpaperReceiver : BroadcastReceiver() {
     
     private fun startServiceIfEnabled(context: Context, wallpaperManager: WallpaperSchedulerManager) {
         if (wallpaperManager.isSchedulerEnabled()) {
+            // Foreground Service starten
             val serviceIntent = Intent(context, WallpaperService::class.java)
-            context.startService(serviceIntent)
+            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+                context.startForegroundService(serviceIntent)
+            } else {
+                context.startService(serviceIntent)
+            }
             Log.d(TAG, "WallpaperService gestartet")
+            
+            // WorkManager als Backup starten
+            WallpaperWorker.schedule(context)
+            Log.d(TAG, "WallpaperWorker geplant")
+            
+            // AlarmManager für exakte Zeiten
+            WallpaperAlarmManager(context).scheduleNextAlarm()
+            Log.d(TAG, "Alarm geplant")
         }
     }
 }

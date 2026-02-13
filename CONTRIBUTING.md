@@ -6,7 +6,7 @@ Thank you for your interest in contributing! Here's how you can help.
 
 ### Reporting Bugs
 
-1. Check if the bug has already been reported in [Issues](https://github.com/KaiTooast/wallpaper-schedule/issues)
+1. Check if the bug has already been reported in [Issues](https://github.com/Michikaitsu/wallpaper-schedule/issues)
 2. If not, create a new issue with:
    - A clear title
    - Steps to reproduce
@@ -39,7 +39,7 @@ Thank you for your interest in contributing! Here's how you can help.
 ### Building
 ```bash
 # Clone the repo
-git clone https://github.com/KaiTooast/wallpaper-schedule.git
+git clone https://github.com/Michikaitsu/wallpaper-schedule.git
 cd wallpaper-schedule
 
 # Build debug version

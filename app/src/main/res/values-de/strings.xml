@@ -29,8 +29,27 @@
     <string name="select_one_day">Bitte mindestens einen Tag auswählen</string>
     <string name="wallpaper_set_days">Wallpaper für %1$d Tage gesetzt</string>
     <string name="wallpaper_set">Wallpaper gesetzt</string>
+    <string name="loading">Laden...</string>
     <string name="error_message">Fehler: %1$s</string>
     <string name="change_time">Tippen zum Ändern</string>
+    <string name="add_time_slot">+ Zeitslot hinzufügen</string>
+    <string name="slot_dawn">Morgendämmerung</string>
+    <string name="slot_morning">Morgen</string>
+    <string name="slot_noon">Mittag</string>
+    <string name="slot_afternoon">Nachmittag</string>
+    <string name="slot_evening">Abend</string>
+    <string name="slot_night">Nacht</string>
+    <string name="all_slots_used">Alle Zeitslots sind bereits in Verwendung</string>
+    <string name="slot_added">Zeitslot hinzugefügt</string>
+    <string name="slot_exists">Ein Slot zu dieser Zeit existiert bereits</string>
+    <string name="delete_slot">Zeitslot löschen</string>
+    <string name="slot_deleted">Zeitslot gelöscht</string>
+    <string name="min_one_slot">Mindestens ein Zeitslot erforderlich</string>
+    
+    <!-- Notification -->
+    <string name="notification_service_running">Wallpaper-Planung ist aktiv</string>
+    <string name="notification_channel_name">Wallpaper Scheduler</string>
+    <string name="notification_channel_description">Zeigt an, wenn die Wallpaper-Planung aktiv ist</string>
     
     <!-- Settings -->
     <string name="settings">Einstellungen</string>
@@ -44,10 +63,14 @@
     <string name="help">Hilfe</string>
     <string name="about">Über</string>
     <string name="about_desc">Plane verschiedene Hintergrundbilder für verschiedene Tageszeiten, für jeden Wochentag.</string>
-    <string name="made_by">Mit ❤️ gemacht von KaiTooast</string>
+    <string name="made_by">Mit ❤️ gemacht von Michikaitsu</string>
     <string name="lang_system">Systemstandard</string>
     <string name="lang_english">English</string>
     <string name="lang_german">Deutsch</string>
+    
+    <!-- Notification settings -->
+    <string name="show_notification">Benachrichtigung anzeigen</string>
+    <string name="show_notification_desc">Zeigt an, wenn der Scheduler aktiv ist</string>
     
     <!-- Day names -->
     <string name="monday">Montag</string>
@@ -66,4 +89,110 @@
     <string name="fri">Fr</string>
     <string name="sat">Sa</string>
     <string name="sun">So</string>
+    
+    <!-- Wallpaper target -->
+    <string name="select_wallpaper_target">Ziel auswählen</string>
+    <string name="select_wallpaper_target_desc">Wo soll das Wallpaper angewendet werden?</string>
+    <string name="home_screen">Startbildschirm</string>
+    <string name="home_screen_desc">Hintergrund des Startbildschirms</string>
+    <string name="lock_screen">Sperrbildschirm</string>
+    <string name="lock_screen_desc">Hintergrund des Sperrbildschirms</string>
+    <string name="both_screens">Beide</string>
+    <string name="both_screens_desc">Gleiches Bild für Start- und Sperrbildschirm</string>
+    
+    <!-- Random mode -->
+    <string name="random_mode">Zufallsmodus</string>
+    <string name="random_mode_desc">Zufälliges Wallpaper aus Ordner</string>
+    <string name="select_folder">Ordner auswählen</string>
+    
+    <!-- Backup -->
+    <string name="backup_restore">Backup &amp; Wiederherstellen</string>
+    <string name="backup">Backup erstellen</string>
+    <string name="restore">Wiederherstellen</string>
+    <string name="backup_success">Backup erfolgreich erstellt</string>
+    <string name="restore_success">Wiederherstellung erfolgreich</string>
+    <string name="backup_error">Backup fehlgeschlagen</string>
+    <string name="restore_invalid">Ungültige Backup-Daten</string>
+    <string name="restore_empty">Zwischenablage ist leer</string>
+    
+    <!-- Widget -->
+    <string name="widget_description">Schneller Schalter für Wallpaper Scheduler</string>
+    <string name="widget_photo_desc">Zeigt ein Foto aus deiner Galerie</string>
+    <string name="tap_to_select">Tippen um Foto auszuwählen</string>
+    <string name="photo_widget">Foto</string>
+    <string name="widget_next_change_desc">Zeigt Countdown bis zum nächsten Wallpaper-Wechsel</string>
+    <string name="widget_quick_switch_desc">Schnellwechsel zwischen Morgen- und Abend-Wallpaper</string>
+    <string name="in_days">in %1$d Tagen</string>
+    <string name="in_hours_mins">in %1$dh %2$dm</string>
+    <string name="in_mins">in %1$d Min</string>
+    
+    <!-- History -->
+    <string name="history">Verlauf</string>
+    <string name="no_history">Noch kein Wallpaper-Verlauf</string>
+    <string name="reapply_wallpaper">Wallpaper erneut anwenden</string>
+    <string name="wallpaper_applied">Wallpaper angewendet</string>
+    <string name="file_not_found">Datei nicht gefunden</string>
+    
+    <!-- Shuffle -->
+    <string name="shuffle_mode">Zufallsmodus</string>
+    <string name="shuffle_enabled">Zufällig aus Ordner</string>
+    <string name="shuffle_folder_set">Shuffle-Ordner gesetzt</string>
+    <string name="shuffle_disabled">Shuffle deaktiviert</string>
+    <string name="tap_to_close">Tippen zum Schließen</string>
+    <string name="close">Schließen</string>
+    <string name="no_wallpaper">Kein Wallpaper</string>
+    <string name="change_wallpaper">Wallpaper ändern</string>
+    
+    <!-- Onboarding -->
+    <string name="skip">Überspringen</string>
+    <string name="get_started">Los geht\'s</string>
+    <string name="onboarding_title_1">Willkommen</string>
+    <string name="onboarding_desc_1">Plane verschiedene Hintergrundbilder für verschiedene Tageszeiten, automatisch.</string>
+    <string name="onboarding_title_2">Zeitslots</string>
+    <string name="onboarding_desc_2">Erstelle eigene Zeitslots für jeden Tag. Dein Wallpaper wechselt automatisch zu den eingestellten Zeiten.</string>
+    <string name="onboarding_title_3">Shuffle-Modus</string>
+    <string name="onboarding_desc_3">Aktiviere den Shuffle-Modus um bei jedem Zeitslot ein zufälliges Wallpaper aus einem Ordner zu bekommen.</string>
+    <string name="onboarding_title_4">Bereit!</string>
+    <string name="onboarding_desc_4">Richte deinen ersten Wallpaper-Plan ein und genieße automatische Wallpaper-Wechsel.</string>
+    
+    <!-- Preview -->
+    <string name="preview">Vorschau</string>
+    
+    <!-- Live Wallpaper -->
+    <string name="live_wallpaper_desc">Animiertes Wallpaper aus Video oder GIF</string>
+    <string name="live_wallpaper">Live Wallpaper</string>
+    <string name="live_wallpaper_detected">Video/GIF erkannt</string>
+    <string name="set_as_live_wallpaper">Als Live Wallpaper setzen</string>
+    <string name="live_wallpaper_info">Live Wallpapers spielen animierte Videos oder GIFs als Hintergrund ab.</string>
+    <string name="select_media">Bild oder Video auswählen</string>
+    <string name="live_wallpaper_manual_info">Das Live Wallpaper wurde gespeichert. Um es zu aktivieren, gehe zu den Wallpaper-Einstellungen und wähle \"Wallpaper Scheduler\" als Live Wallpaper aus.</string>
+    <string name="live_wallpaper_miui_info">Das Video wurde gespeichert!\n\nUm es als Live Wallpaper zu aktivieren:\n\n1. Gehe zu Einstellungen → Hintergrund\n2. Tippe auf \"Live Hintergründe\"\n3. Wähle \"Wallpaper Scheduler\"\n4. Tippe auf \"Anwenden\"\n\nHinweis: Bei MIUI findest du Live Wallpapers unter Einstellungen → Hintergrund → Mehr Hintergründe → Live</string>
+    <string name="open_settings">Einstellungen öffnen</string>
+    
+    <!-- Favorites -->
+    <string name="favorites">Favoriten</string>
+    <string name="favorite">Favorit</string>
+    <string name="no_favorites">Noch keine Favoriten</string>
+    <string name="added_to_favorites">Zu Favoriten hinzugefügt</string>
+    <string name="removed_from_favorites">Aus Favoriten entfernt</string>
+    <string name="add_to_favorites">Zu Favoriten hinzufügen</string>
+    <string name="remove_favorite">Aus Favoriten entfernen</string>
+    <string name="use_wallpaper">Wallpaper verwenden</string>
+    <string name="added_on">Hinzugefügt am: %1$s</string>
+    <string name="from_favorites">Aus Favoriten</string>
+    
+    <!-- Effects -->
+    <string name="wallpaper_effects">Wallpaper Effekte</string>
+    <string name="effect_blur">Unschärfe</string>
+    <string name="effect_dim">Abdunkeln</string>
+    <string name="effect_saturation">Sättigung</string>
+    <string name="effect_warmth">Wärme</string>
+    <string name="effect_contrast">Kontrast</string>
+    <string name="reset">Zurücksetzen</string>
+    <string name="apply">Anwenden</string>
+    <string name="apply_effects">Effekte anwenden</string>
+    
+    <!-- Auto-crop -->
+    <string name="auto_crop">Auto-Zuschnitt</string>
+    <string name="auto_crop_desc">Bild automatisch an Bildschirm anpassen</string>
 </resources>

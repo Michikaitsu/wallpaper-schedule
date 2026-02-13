@@ -101,7 +101,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/next"
-            app:backgroundTint="@color/accent_blue"
+            android:textColor="#FFFFFFFF"
+            app:backgroundTint="#FF4A0404"
             app:cornerRadius="12dp" />
 
     </LinearLayout>

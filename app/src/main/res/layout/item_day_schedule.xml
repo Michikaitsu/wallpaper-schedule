@@ -35,191 +35,32 @@
             <com.google.android.material.switchmaterial.SwitchMaterial
                 android:id="@+id/daySwitch"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                app:thumbTint="@color/switch_thumb_tint"
+                app:trackTint="@color/switch_track_tint" />
 
         </LinearLayout>
 
-        <!-- Wallpaper Previews -->
+        <!-- Dynamic Time Slots Container -->
         <LinearLayout
-            android:id="@+id/contentLayout"
+            android:id="@+id/slotsContainer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_marginTop="16dp">
+            android:layout_marginTop="16dp" />
 
-            <!-- Morning -->
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical"
-                android:layout_marginEnd="8dp">
-
-                <TextView
-                    android:id="@+id/morningLabel"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="☀️ Morning"
-                    android:textColor="@color/text_secondary"
-                    android:textSize="12sp"
-                    android:layout_marginBottom="8dp" />
-
-                <com.google.android.material.card.MaterialCardView
-                    android:id="@+id/morningCard"
-                    android:layout_width="match_parent"
-                    android:layout_height="100dp"
-                    app:cardCornerRadius="12dp"
-                    app:cardBackgroundColor="@color/card_background_secondary"
-                    app:cardElevation="0dp"
-                    app:strokeWidth="2dp"
-                    app:strokeColor="@color/card_background_secondary">
-
-                    <ImageView
-                        android:id="@+id/morningPreview"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:scaleType="centerCrop" />
-
-                    <TextView
-                        android:id="@+id/morningPlaceholder"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:text="@string/add_image"
-                        android:textColor="@color/text_secondary"
-                        android:textSize="14sp" />
-
-                </com.google.android.material.card.MaterialCardView>
-
-                <!-- Time Button -->
-                <com.google.android.material.card.MaterialCardView
-                    android:id="@+id/morningTimeCard"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    app:cardCornerRadius="8dp"
-                    app:cardBackgroundColor="@color/card_background_secondary"
-                    app:cardElevation="0dp"
-                    app:strokeWidth="1dp"
-                    app:strokeColor="@color/accent_orange"
-                    app:rippleColor="@color/accent_orange">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:padding="8dp"
-                        android:gravity="center">
-
-                        <TextView
-                            android:id="@+id/morningTime"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="08:00"
-                            android:textColor="@color/accent_orange"
-                            android:textSize="16sp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/change_time"
-                            android:textColor="@color/text_secondary"
-                            android:textSize="10sp" />
-
-                    </LinearLayout>
-
-                </com.google.android.material.card.MaterialCardView>
-
-            </LinearLayout>
-
-            <!-- Evening -->
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical"
-                android:layout_marginStart="8dp">
-
-                <TextView
-                    android:id="@+id/eveningLabel"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="🌙 Evening"
-                    android:textColor="@color/text_secondary"
-                    android:textSize="12sp"
-                    android:layout_marginBottom="8dp" />
-
-                <com.google.android.material.card.MaterialCardView
-                    android:id="@+id/eveningCard"
-                    android:layout_width="match_parent"
-                    android:layout_height="100dp"
-                    app:cardCornerRadius="12dp"
-                    app:cardBackgroundColor="@color/card_background_secondary"
-                    app:cardElevation="0dp"
-                    app:strokeWidth="2dp"
-                    app:strokeColor="@color/card_background_secondary">
-
-                    <ImageView
-                        android:id="@+id/eveningPreview"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:scaleType="centerCrop" />
-
-                    <TextView
-                        android:id="@+id/eveningPlaceholder"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:text="@string/add_image"
-                        android:textColor="@color/text_secondary"
-                        android:textSize="14sp" />
-
-                </com.google.android.material.card.MaterialCardView>
-
-                <!-- Time Button -->
-                <com.google.android.material.card.MaterialCardView
-                    android:id="@+id/eveningTimeCard"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    app:cardCornerRadius="8dp"
-                    app:cardBackgroundColor="@color/card_background_secondary"
-                    app:cardElevation="0dp"
-                    app:strokeWidth="1dp"
-                    app:strokeColor="@color/accent_purple"
-                    app:rippleColor="@color/accent_purple">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:padding="8dp"
-                        android:gravity="center">
-
-                        <TextView
-                            android:id="@+id/eveningTime"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="20:00"
-                            android:textColor="@color/accent_purple"
-                            android:textSize="16sp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/change_time"
-                            android:textColor="@color/text_secondary"
-                            android:textSize="10sp" />
-
-                    </LinearLayout>
-
-                </com.google.android.material.card.MaterialCardView>
-
-            </LinearLayout>
-
-        </LinearLayout>
+        <!-- Add Time Slot Button -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/addSlotButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/add_time_slot"
+            android:textColor="@color/text_secondary"
+            style="@style/Widget.Material3.Button.TextButton"
+            app:icon="@android:drawable/ic_input_add"
+            app:iconTint="@color/text_secondary"
+            app:iconGravity="textStart" />
 
     </LinearLayout>
 

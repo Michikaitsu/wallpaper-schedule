@@ -80,7 +80,9 @@
                     <com.google.android.material.switchmaterial.SwitchMaterial
                         android:id="@+id/enableSwitch"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
+                        android:layout_height="wrap_content"
+                        app:thumbTint="@color/switch_thumb_tint"
+                        app:trackTint="@color/switch_track_tint" />
 
                 </LinearLayout>
 
@@ -116,7 +118,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/apply_all_days"
-                        app:backgroundTint="@color/accent_blue"
+                        android:textColor="#FFFFFFFF"
+                        app:backgroundTint="#FF4A0404"
                         app:cornerRadius="12dp" />
 
                     <com.google.android.material.button.MaterialButton
@@ -125,8 +128,8 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
                         android:text="@string/weekdays_only"
-                        style="@style/Widget.Material3.Button.OutlinedButton"
-                        app:strokeColor="@color/accent_blue"
+                        android:textColor="#FFFFFFFF"
+                        app:backgroundTint="@color/button_blue"
                         app:cornerRadius="12dp" />
 
                     <com.google.android.material.button.MaterialButton
@@ -135,8 +138,8 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
                         android:text="@string/weekends_only"
-                        style="@style/Widget.Material3.Button.OutlinedButton"
-                        app:strokeColor="@color/accent_purple"
+                        android:textColor="#FFFFFFFF"
+                        app:backgroundTint="@color/button_green"
                         app:cornerRadius="12dp" />
 
                     <com.google.android.material.button.MaterialButton
@@ -145,8 +148,8 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
                         android:text="@string/set_times_for_days"
-                        style="@style/Widget.Material3.Button.OutlinedButton"
-                        app:strokeColor="@color/accent_orange"
+                        android:textColor="#FFFFFFFF"
+                        app:backgroundTint="@color/button_yellow"
                         app:cornerRadius="12dp" />
 
                 </LinearLayout>

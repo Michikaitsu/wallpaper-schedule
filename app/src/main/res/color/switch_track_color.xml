@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Checked/Active state - Red -->
+    <item android:color="#804A0404" android:state_checked="true" android:state_enabled="true"/>
+    
+    <!-- Unchecked/Inactive state - Dark neutral -->
+    <item android:color="#4D424242" android:state_enabled="true"/>
+    
+    <!-- Disabled checked state - Muted red -->
+    <item android:color="#4D4A0404" android:state_checked="true" android:state_enabled="false"/>
+    
+    <!-- Disabled unchecked state - Very dark neutral -->
+    <item android:color="#33424242" android:state_enabled="false"/>
+    
+    <!-- Default - Dark neutral -->
+    <item android:color="#4D424242"/>
+</selector>

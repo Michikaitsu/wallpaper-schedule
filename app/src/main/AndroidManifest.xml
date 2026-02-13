@@ -8,7 +8,11 @@
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_DATA_SYNC" />
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
+    <uses-permission android:name="android.permission.USE_EXACT_ALARM" />
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -19,10 +23,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.WallpaperScheduler"
+        android:usesCleartextTraffic="true"
         tools:targetApi="31">
         
         <activity
-            android:name=".MainActivity"
+            android:name=".OnboardingActivity"
             android:exported="true"
             android:theme="@style/Theme.WallpaperScheduler">
             <intent-filter>
@@ -32,14 +37,30 @@
         </activity>
 
         <activity
+            android:name=".MainActivity"
+            android:exported="false"
+            android:theme="@style/Theme.WallpaperScheduler" />
+
+        <activity
             android:name=".SettingsActivity"
+            android:exported="false"
+            android:theme="@style/Theme.WallpaperScheduler" />
+
+        <activity
+            android:name=".HistoryActivity"
+            android:exported="false"
+            android:theme="@style/Theme.WallpaperScheduler" />
+
+        <activity
+            android:name=".FavoritesActivity"
             android:exported="false"
             android:theme="@style/Theme.WallpaperScheduler" />
 
         <service
             android:name=".WallpaperService"
             android:enabled="true"
-            android:exported="false" />
+            android:exported="false"
+            android:foregroundServiceType="dataSync" />
 
         <receiver
             android:name=".WallpaperReceiver"
@@ -50,6 +71,46 @@
                 <action android:name="android.intent.action.TIME_SET" />
                 <action android:name="android.intent.action.TIMEZONE_CHANGED" />
             </intent-filter>
+        </receiver>
+
+        <receiver
+            android:name=".WallpaperAlarmReceiver"
+            android:enabled="true"
+            android:exported="false" />
+
+        <receiver
+            android:name=".SchedulerWidget"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+                <action android:name="com.wallpaperscheduler.TOGGLE_SCHEDULER" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/widget_info" />
+        </receiver>
+
+        <receiver
+            android:name=".NextChangeWidget"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/widget_next_change_info" />
+        </receiver>
+
+        <receiver
+            android:name=".QuickSwitchWidget"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+                <action android:name="com.wallpaperscheduler.QUICK_SWITCH" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/widget_quick_switch_info" />
         </receiver>
 
     </application>

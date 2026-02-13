@@ -9,11 +9,11 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/KaiTooast/wallpaper-schedule/releases">
-    <img src="https://img.shields.io/github/v/release/KaiTooast/wallpaper-schedule" alt="Release">
+  <a href="https://github.com/Michikaitsu/wallpaper-schedule/releases">
+    <img src="https://img.shields.io/github/v/release/Michikaitsu/wallpaper-schedule" alt="Release">
   </a>
   <a href="LICENSE">
-    <img src="https://img.shields.io/github/license/KaiTooast/wallpaper-schedule" alt="License">
+    <img src="https://img.shields.io/github/license/Michikaitsu/wallpaper-schedule" alt="License">
   </a>
 </p>
 
@@ -38,11 +38,11 @@
 
 ## Download
 
-Download the latest APK from the [Releases](https://github.com/KaiTooast/wallpaper-schedule/releases) page.
+Download the latest APK from the [Releases](https://github.com/Michikaitsu/wallpaper-schedule/releases) page.
 
 ## Installation
 
-1. Download the APK file from [Releases](https://github.com/KaiTooast/wallpaper-schedule/releases)
+1. Download the APK file from [Releases](https://github.com/Michikaitsu/wallpaper-schedule/releases)
 2. Enable "Install from unknown sources" in your Android settings
 3. Open the APK and install
 4. Grant the required permissions (Storage, Wallpaper)
@@ -93,4 +93,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## Author
 
-Made with ❤️ by [KaiTooast](https://github.com/KaiTooast)
+Made with ❤️ by [Michikaitsu](https://github.com/Michikaitsu)

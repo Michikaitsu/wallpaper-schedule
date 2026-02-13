@@ -14,6 +14,7 @@ import androidx.core.content.ContextCompat
 import com.google.android.material.appbar.MaterialToolbar
 import com.google.android.material.card.MaterialCardView
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import com.google.android.material.switchmaterial.SwitchMaterial
 import java.util.Locale
 
 class SettingsActivity : AppCompatActivity() {
@@ -21,12 +22,14 @@ class SettingsActivity : AppCompatActivity() {
     private lateinit var prefs: SharedPreferences
     private lateinit var currentThemeText: TextView
     private lateinit var currentLanguageText: TextView
+    private lateinit var notificationSwitch: SwitchMaterial
 
     companion object {
-        const val GITHUB_URL = "https://github.com/KaiTooast/wallpaper-schedule"
-        const val HELP_URL = "https://kaitooast.github.io/wallpaper-schedule"
+        const val GITHUB_URL = "https://github.com/Michikaitsu/wallpaper-schedule"
+        const val HELP_URL = "https://michikaitsu.github.io/wallpaper-schedule"
         const val PREF_THEME = "theme"
         const val PREF_LANGUAGE = "language"
+        const val PREF_SHOW_NOTIFICATION = "show_notification"
         const val THEME_LIGHT = "light"
         const val THEME_DARK = "dark"
         const val THEME_AMOLED = "amoled"
@@ -72,9 +75,13 @@ class SettingsActivity : AppCompatActivity() {
     private fun setupViews() {
         currentThemeText = findViewById(R.id.currentTheme)
         currentLanguageText = findViewById(R.id.currentLanguage)
+        notificationSwitch = findViewById(R.id.notificationSwitch)
 
         updateThemeText()
         updateLanguageText()
+        
+        // Notification switch
+        notificationSwitch.isChecked = prefs.getBoolean(PREF_SHOW_NOTIFICATION, true)
 
         // Apply AMOLED colors to cards if needed
         applyAmoledToCards()
@@ -111,6 +118,21 @@ class SettingsActivity : AppCompatActivity() {
         findViewById<LinearLayout>(R.id.languageOption).setOnClickListener {
             showLanguageDialog()
         }
+        
+        notificationSwitch.setOnCheckedChangeListener { _, isChecked ->
+            prefs.edit().putBoolean(PREF_SHOW_NOTIFICATION, isChecked).apply()
+            // Service neu starten um Notification zu aktualisieren
+            val wallpaperPrefs = getSharedPreferences("wallpaper_prefs", Context.MODE_PRIVATE)
+            if (wallpaperPrefs.getBoolean("scheduler_enabled", false)) {
+                val serviceIntent = Intent(this, WallpaperService::class.java)
+                stopService(serviceIntent)
+                if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+                    startForegroundService(serviceIntent)
+                } else {
+                    startService(serviceIntent)
+                }
+            }
+        }
 
         findViewById<LinearLayout>(R.id.helpOption).setOnClickListener {
             openUrl(HELP_URL)
@@ -118,6 +140,61 @@ class SettingsActivity : AppCompatActivity() {
 
         findViewById<LinearLayout>(R.id.githubOption).setOnClickListener {
             openUrl(GITHUB_URL)
+        }
+        
+        findViewById<LinearLayout>(R.id.backupOption).setOnClickListener {
+            showBackupDialog()
+        }
+    }
+    
+    private fun showBackupDialog() {
+        MaterialAlertDialogBuilder(this)
+            .setTitle(getString(R.string.backup_restore))
+            .setItems(arrayOf(getString(R.string.backup), getString(R.string.restore))) { _, which ->
+                when (which) {
+                    0 -> createBackup()
+                    1 -> restoreBackup()
+                }
+            }
+            .setNegativeButton(getString(R.string.cancel), null)
+            .show()
+    }
+    
+    private fun createBackup() {
+        try {
+            val wallpaperManager = WallpaperSchedulerManager(this)
+            val json = wallpaperManager.exportSettings()
+            
+            val clipboard = getSystemService(Context.CLIPBOARD_SERVICE) as android.content.ClipboardManager
+            val clip = android.content.ClipData.newPlainText("Wallpaper Scheduler Backup", json)
+            clipboard.setPrimaryClip(clip)
+            
+            android.widget.Toast.makeText(this, getString(R.string.backup_success), android.widget.Toast.LENGTH_SHORT).show()
+        } catch (e: Exception) {
+            android.widget.Toast.makeText(this, getString(R.string.backup_error), android.widget.Toast.LENGTH_SHORT).show()
+        }
+    }
+    
+    private fun restoreBackup() {
+        try {
+            val clipboard = getSystemService(Context.CLIPBOARD_SERVICE) as android.content.ClipboardManager
+            val clipData = clipboard.primaryClip
+            
+            if (clipData != null && clipData.itemCount > 0) {
+                val json = clipData.getItemAt(0).text.toString()
+                
+                if (json.contains("\"schedules\"")) {
+                    val wallpaperManager = WallpaperSchedulerManager(this)
+                    wallpaperManager.importSettings(json)
+                    android.widget.Toast.makeText(this, getString(R.string.restore_success), android.widget.Toast.LENGTH_SHORT).show()
+                } else {
+                    android.widget.Toast.makeText(this, getString(R.string.restore_invalid), android.widget.Toast.LENGTH_SHORT).show()
+                }
+            } else {
+                android.widget.Toast.makeText(this, getString(R.string.restore_empty), android.widget.Toast.LENGTH_SHORT).show()
+            }
+        } catch (e: Exception) {
+            android.widget.Toast.makeText(this, "${getString(R.string.backup_error)}: ${e.message}", android.widget.Toast.LENGTH_SHORT).show()
         }
     }
 

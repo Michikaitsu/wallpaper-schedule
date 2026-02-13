@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_weight="1"
+    android:orientation="vertical"
+    android:layout_marginHorizontal="4dp">
+
+    <!-- Time Label -->
+    <TextView
+        android:id="@+id/slotTimeLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="08:00"
+        android:textColor="@color/text_secondary"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="8dp" />
+
+    <!-- Wallpaper Preview Card -->
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/slotWallpaperCard"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        app:cardCornerRadius="12dp"
+        app:cardBackgroundColor="@color/card_background_secondary"
+        app:cardElevation="0dp"
+        app:strokeWidth="2dp"
+        app:strokeColor="@color/card_background_secondary">
+
+        <ImageView
+            android:id="@+id/slotPreview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/slotPlaceholder"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/add_image"
+            android:textColor="@color/text_secondary"
+            android:textSize="14sp" />
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <!-- Time Edit Button -->
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/slotTimeCard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:cardCornerRadius="8dp"
+        app:cardBackgroundColor="@color/card_background_secondary"
+        app:cardElevation="0dp"
+        app:strokeWidth="0dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="8dp"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/slotTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="08:00"
+                android:textColor="@color/text_secondary"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/change_time"
+                android:textColor="@color/text_secondary"
+                android:textSize="10sp" />
+
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+</LinearLayout>

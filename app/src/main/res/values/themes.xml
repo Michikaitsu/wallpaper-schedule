@@ -2,16 +2,32 @@
 <resources>
     <!-- Dark Theme -->
     <style name="Theme.WallpaperScheduler" parent="Theme.Material3.DayNight.NoActionBar">
-        <item name="colorPrimary">@color/accent_blue</item>
-        <item name="colorPrimaryVariant">@color/accent_purple</item>
+        <item name="colorPrimary">#FF4A0404</item>
+        <item name="colorPrimaryVariant">#FF4A0404</item>
         <item name="colorOnPrimary">@color/white</item>
-        <item name="colorSecondary">@color/accent_purple</item>
+        <item name="colorSecondary">#FF4A0404</item>
+        <item name="colorSwitchThumbNormal">@color/white</item>
+        <item name="colorControlActivated">#FF4A0404</item>
+        <item name="colorControlNormal">#FF424242</item>
+        <item name="materialSwitchStyle">@style/CustomSwitchStyle</item>
         <item name="android:statusBarColor">?android:colorBackground</item>
         <item name="android:navigationBarColor">?android:colorBackground</item>
+    </style>
+
+    <style name="CustomSwitchStyle" parent="Widget.Material3.CompoundButton.MaterialSwitch">
+        <item name="trackTint">@color/switch_track_color</item>
+        <item name="thumbTint">@color/switch_thumb_color</item>
     </style>
 
     <style name="ToolbarTitle" parent="TextAppearance.Material3.TitleLarge">
         <item name="android:textSize">22sp</item>
         <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="Theme.WallpaperScheduler.Transparent" parent="Theme.WallpaperScheduler">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:backgroundDimEnabled">false</item>
     </style>
 </resources>
